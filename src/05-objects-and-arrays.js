@@ -48,6 +48,91 @@ let a = 1, b = 2;
 console.log('交换后 a:', a, 'b:', b);
 console.log('');
 
+// ========== 2.1 数组解构 (完整版) ==========
+console.log('--- 2.1 数组解构 (完整版) ---');
+
+// 1) 基础:按位置取
+const fruits = ['apple', 'banana', 'cherry', 'date'];
+const [f0, f1, f2, f3] = fruits;
+console.log('1) 基础:', f0, f1, f2, f3);
+
+// 2) 只取前几个
+const [firstFruit] = fruits;
+console.log('2) 只取第一个:', firstFruit);
+
+// 3) 跳过元素:用空位占位
+const [, , thirdFruit] = fruits;
+console.log('3) 跳过前两个,取第三个:', thirdFruit);
+
+// 4) 剩余元素(rest)
+const [head, ...tail] = fruits;
+console.log('4) head:', head, '| tail:', tail);
+// 注意:rest 必须是最后一个,且数组中只能有一个 rest
+
+// 5) 默认值:数组越界或 undefined 时生效
+const sparseArr = [1];
+const [x1 = '默认1', x2 = '默认2', x3 = '默认3'] = sparseArr;
+console.log('5) 默认值:', x1, x2, x3);
+// 注意:null 不会触发默认值(只有 undefined 会)
+const [y1 = '默认'] = [null];
+console.log('   null 不触发默认值:', y1);
+
+// 6) 多维(嵌套)解构
+const matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const [[m00, m01], [, m11]] = matrix;
+console.log('6) 二维解构 m00,m01,m11:', m00, m01, m11);
+
+// 7) 函数返回多个值(最经典的解构用途)
+function getMinMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)];
+}
+const [min, max] = getMinMax([3, 1, 4, 1, 5, 9, 2, 6]);
+console.log('7) 函数多返回值:', 'min =', min, '| max =', max);
+
+// 8) 函数参数列表的解构
+function sum([a, b, c]) {
+  return a + b + c;
+}
+console.log('8) 函数参数解构 sum([1,2,3]):', sum([1, 2, 3]));
+
+// 9) 解构字符串(可迭代对象都行)
+const [s0, s1] = '你好';
+console.log('9) 字符串解构:', s0, s1);
+// 超出长度的取 undefined
+const [s0o, s1o, s2o = '默认值'] = '你';
+console.log('   超出长度触发默认值:', s0o, s1o, s2o);
+// 注意:emoji 等 surrogate pair 会解出半个字符
+const [emoji0, emoji1] = '😀😎';
+console.log('   emoji 解构:', emoji0, emoji1);
+
+// 10) 解构 Set
+const [setFirst] = new Set([10, 20, 30]);
+console.log('10) Set 解构第一个:', setFirst);
+
+// 11) 解构 Map(拿到 entry)
+const [firstEntry] = new Map([['k1', 'v1'], ['k2', 'v2']]);
+console.log('11) Map 解构第一个 entry:', firstEntry);
+
+// 12) 配合正则 match:解析 URL 各部分
+const urlRegex = /^(\w+):\/\/([\w.]+)(?::(\d+))?$/;
+const parsed = 'https://example.com:8080'.match(urlRegex);
+const [, protocol, host, port = '默认443'] = parsed;
+console.log('12) 正则 match 解构:',
+  'protocol =', protocol,
+  '| host =', host,
+  '| port =', port);
+
+// 13) 解构 length 属性(对象也能像数组一样取 length)
+const { length } = fruits;
+console.log('13) 从数组解构 length:', length);
+
+// 14) 不声明变量,只解构赋值:用于把数据塞进已有变量
+let p, q;
+[p, q] = [10, 20];
+console.log('14) 不带 const/let 的解构:', p, q);
+
+console.log('');
+
 // ========== 3. 扩展运算 (Spread) ==========
 console.log('--- 3. 扩展运算 ... ---');
 const arr1 = [1, 2, 3];
@@ -85,7 +170,7 @@ console.log('null ?? 100:', null ?? 100);      // 100
 console.log("undefined ?? 'default':", undefined ?? 'default');
 
 // 对比 ||
-console.log('--- 对比 || (会把 0、''、false 也算作空) ---');
+console.log('--- 对比 || (会把 0、字符串空、false 也算作空) ---');
 console.log('0 || 100:', 0 || 100);            // 100
 console.log("'' || 'default':", '' || 'default'); // 'default'
 console.log('');
