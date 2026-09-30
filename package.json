@@ -1,0 +1,28 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "JavaScript 语法学习项目 - Node.js 环境",
+  "type": "module",
+  "main": "src/01-basics.js",
+  "scripts": {
+    "start": "node src/01-basics.js",
+    "basics": "node src/01-basics.js",
+    "types": "node src/02-types-and-coercion.js",
+    "control": "node src/03-control-flow.js",
+    "functions": "node src/04-functions.js",
+    "objects": "node src/05-objects-and-arrays.js",
+    "async": "node src/06-async-await.js",
+    "all": "node run-all.js"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "learning",
+    "es6"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

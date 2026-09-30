@@ -1,0 +1,18 @@
+# 自动检测文本文件并统一行尾 (Windows 友好)
+* text=auto eol=lf
+
+# 明确标记
+*.js   text eol=lf
+*.mjs  text eol=lf
+*.cjs  text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+
+# 二进制 (保持原样)
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary
