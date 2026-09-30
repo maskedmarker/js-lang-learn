@@ -1,0 +1,26 @@
+{
+    // 配置文件版本号，固定写 0.2.0，不要修改，VSCode识别用
+    "version": "0.2.0",
+    // 调试配置数组，可以写多套调试方案，F5下拉框可以切换
+    "configurations": [
+        {
+            // 调试器类型：node 代表NodeJS调试器；java / chrome 对应其他调试
+            "type": "node",
+            // 请求类型：launch=启动新进程调试；attach=附加到已经在运行的node进程（比如SpringBoot、node服务）
+            "request": "launch",
+            // 名称，会出现在F5下拉选择框，自定义名字
+            "name": "调试当前JS文件",
+            // 要调试的程序文件。${file} 是VSCode内置变量：代表**当前编辑器打开的文件**
+            "program": "${file}",
+            // 控制台输出位置
+            // `integratedTerminal`：VSCode 内置终端（推荐，可以输入交互，`console.log`在这里输出）
+            // `internalConsole`：Debug Console 面板，**不能输入交互**，不适合需要输入的脚本
+            // `externalTerminal`：单独弹出一个独立 cmd/powershell 窗口
+            "console": "integratedTerminal",
+            // 单步调试时，自动跳过这些文件，不进入
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}
