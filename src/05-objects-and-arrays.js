@@ -230,10 +230,10 @@ console.log('');
 
 // ========== 9. 不可变更新模式 ==========
 console.log('--- 9. 不可变更新 (React/Redux 风格) ---');
-const state = { user: { name: '张三', age: 25 }, items: [1, 2, 3] };
+const state = { user: { name: '张三', age: 25 }, items: [1, 2, 3], config: { theme: 'dark' } };
 
 const newState = {
-  ...state,
+  ...state,                                        // 浅拷贝其他属性
   user: { ...state.user, age: 26 },                // 只改 user.age
   items: [...state.items, 4],                      // 追加一项
 };
