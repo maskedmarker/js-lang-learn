@@ -20,7 +20,8 @@ hello-node/
     ├── 04-functions.js           # 函数:声明/箭头/闭包/递归
     ├── 05-objects-and-arrays.js  # 对象与数组:解构/扩展/Map/Set
     ├── 06-async-await.js         # 异步编程:Promise/async-await
-    └── 07-void-operator.js       # void 运算符:返回 undefined / 阻止跳转
+    ├── 07-void-operator.js       # void 运算符:返回 undefined / 阻止跳转
+    └── 08-typeof.js              # typeof:8 种返回值、与 undefined 比较的坑
 ```
 
 ## 使用方法
@@ -35,6 +36,7 @@ npm run functions    # 函数
 npm run objects      # 对象与数组
 npm run async        # 异步编程
 npm run void         # void 运算符
+npm run typeof       # typeof 运算符
 
 # 依次运行所有示例
 npm run all
@@ -49,6 +51,7 @@ npm run all
 5. `05-objects-and-arrays.js` — 解构、扩展、可选链、Map/Set
 6. `06-async-await.js` — Promise、async/await、并发
 7. `07-void-operator.js` — `void` 运算符、IIFE 简写、阻止跳转
+8. `08-typeof.js` — `typeof` 的 8 种返回值、未声明容错、与字符串 `'undefined'` 比较
 
 ## 关键提示
 

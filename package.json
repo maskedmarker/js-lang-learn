@@ -13,6 +13,7 @@
     "objects": "node src/05-objects-and-arrays.js",
     "async": "node src/06-async-await.js",
     "void": "node src/07-void-operator.js",
+    "typeof": "node src/08-typeof.js",
     "all": "node run-all.js"
   },
   "keywords": [
