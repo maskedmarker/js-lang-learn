@@ -11,6 +11,7 @@ const lessons = [
   '04-functions.js',
   '05-objects-and-arrays.js',
   '06-async-await.js',
+  '07-void-operator.js',
 ];
 
 console.log('=== JavaScript 学习 - 全部示例 ===\n');

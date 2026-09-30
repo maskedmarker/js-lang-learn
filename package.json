@@ -12,6 +12,7 @@
     "functions": "node src/04-functions.js",
     "objects": "node src/05-objects-and-arrays.js",
     "async": "node src/06-async-await.js",
+    "void": "node src/07-void-operator.js",
     "all": "node run-all.js"
   },
   "keywords": [
