@@ -141,6 +141,7 @@ const allResults = await Promise.all([
   fakeApi(3, 100),
 ]);
 console.log(`  并发耗时 ${Date.now() - p0}ms`);
+console.log('allResults is Array: ', Array.isArray(allResults));
 console.log('');
 
 // ========== 10. AbortController (取消请求) ==========
