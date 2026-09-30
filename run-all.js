@@ -11,7 +11,8 @@ const lessons = [
   '04-functions.js',
   '05-objects-and-arrays.js',
   '06-async-await.js',
-  '07-void-operator.js',
+  '07-void-operator-1.js',
+  '07-void-operator-2.js',
   '08-typeof.js',
 ];
 
