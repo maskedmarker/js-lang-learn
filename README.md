@@ -22,7 +22,10 @@ hello-node/
     ├── 06-async-await.js             # 异步编程:Promise/async-await
     ├── 07-void-operator-1.js       # void 运算符(基础):返回 undefined / 阻止跳转
     ├── 07-void-operator-2.js       # void 运算符(扩展):有名函数 + IIFE + 递归
-    └── 08-typeof.js                # typeof:8 种返回值、与 undefined 比较的坑
+    ├── 08-typeof.js                # typeof:8 种返回值、与 undefined 比较的坑
+    └── import/                     # import 专题(子目录,带演示模块)
+        ├── 09-import.js            # ES Module import 各种写法与坑
+        └── modules/                # 被 09-import.js 导入的示例模块
 ```
 
 ## 使用方法
@@ -39,6 +42,7 @@ npm run async        # 异步编程
 npm run void         # void 运算符 (基础)
 npm run void2        # void 运算符 (扩展:有名函数 + 递归)
 npm run typeof       # typeof 运算符
+npm run import       # import 专题 (含被导入的演示模块)
 
 # 依次运行所有示例
 npm run all
@@ -55,6 +59,7 @@ npm run all
 7. `07-void-operator-1.js` — `void` 运算符基础:返回 undefined、IIFE、阻止跳转
 8. `07-void-operator-2.js` — `void` 运算符扩展:有名函数 IIFE、递归闭包
 9. `08-typeof.js` — `typeof` 的 8 种返回值、未声明容错、与字符串 `'undefined'` 比较
+10. `import/09-import.js` — `import` 专题:default / named / 命名空间 / 重命名 / 副作用 / 路径 / 循环依赖 / 动态 import / 提升 / ESM vs CJS / 常见坑
 
 ## 关键提示
 
