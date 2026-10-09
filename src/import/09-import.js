@@ -53,6 +53,34 @@ console.log('  "default" in math:', 'default' in math, '  hasOwn:', Object.proto
 // 对比:有 default 导出的模块,namespaced 之后 .default 就是那个值
 console.log('  mixed.default:', typeof mixed.default, '   (模块有 default,指向 calculateDiscount)');
 console.log('  mixed.TAX_RATE:', mixed.TAX_RATE, '    (named 和 default 在 namespace 里平级)');
+
+// 4.2 namespace.default  与  { default as D }  严格等价(ES 规范)
+//
+//   import * as M from './foo.js';
+//   import { default as D } from './foo.js';
+//
+// 上面两行对 default 值的访问应当等价:    M.default  <==>  D
+//
+// 也就是说,namespaced import 的 .default 并不是 ESM 为 namespace 临时造的
+// "伪装属性",而是在词法上就等价于"把 default 当作一个具名导入"。
+// ES 规范 (tc39.es / ImportEntries) 明确说:
+//   - `import * as M` 会产生一个 namespace object,它包含所有 named export
+//     再加上一个特殊键 "__esModule" 标识
+//   - 访问 M.default 走的就是"default 这个 binding 的值",与直接具名导入
+//     default 等价
+//
+// 这条规则让"namespace 写法"和"具名 default 写法"在语义上完全互通:
+//   - M.default()  <==>  D()
+//   - M.default.x  <==>  D.x
+//   - M.default === undefined 也对应"模块没有 default"这个事实
+
+// 我们用 mixed 模块现场验证这条等价性
+import { default as D } from './modules/09-mixed-exports.js';
+console.log('  mixed.default === D (引用相等):', mixed.default === D);
+console.log('  mixed.default(50, 0.5)   =', mixed.default(50, 0.5), '   <==>  D(50, 0.5) =', D(50, 0.5));
+// 注意:namespaced 导入还能保留 named,而 { default as D } 只拿到 default
+//       这两种写法用途不同,只是"对 default 的访问"等价
+
 // 注意:命名空间对象是"只读"的,不能 math.add = ...
 try {
   math.add = null;
