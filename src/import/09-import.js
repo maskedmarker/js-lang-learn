@@ -43,10 +43,16 @@ console.log('');
 // ========== 4. 命名空间导入:import * as M from './...' ==========
 console.log('--- 4. 命名空间导入 namespace import ---');
 import * as math from './modules/09-named-exports.js';
+import * as mixed from './modules/09-mixed-exports.js';
 console.log('  math.COURSE:', math.COURSE);
 console.log('  math.add(10, 20):', math.add(10, 20));
-// 命名空间对象上有一个 default 属性?没有,因为这个模块没有默认导出
-console.log('  math.default:', math.default);   // undefined
+// 4.1 关于 default 属性的精确说法:
+// 命名空间对象上**总会有一个 default 属性**(ES 规范保证),只是值是 undefined
+console.log('  math.default:', math.default, '   (模块无 default,占位为 undefined)');
+console.log('  "default" in math:', 'default' in math, '  hasOwn:', Object.prototype.hasOwnProperty.call(math, 'default'));
+// 对比:有 default 导出的模块,namespaced 之后 .default 就是那个值
+console.log('  mixed.default:', typeof mixed.default, '   (模块有 default,指向 calculateDiscount)');
+console.log('  mixed.TAX_RATE:', mixed.TAX_RATE, '    (named 和 default 在 namespace 里平级)');
 // 注意:命名空间对象是"只读"的,不能 math.add = ...
 try {
   math.add = null;
