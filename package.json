@@ -16,6 +16,7 @@
     "void2": "node src/07-void-operator-2.js",
     "typeof": "node src/08-typeof.js",
     "import": "node src/import/09-import.js",
+    "arrays": "node src/array/09-arrays.js",
     "all": "node run-all.js"
   },
   "keywords": [

@@ -15,6 +15,7 @@ const lessons = [
   '07-void-operator-2.js',
   '08-typeof.js',
   'import/09-import.js',
+  'array/09-arrays.js',
 ];
 
 console.log('=== JavaScript 学习 - 全部示例 ===\n');
