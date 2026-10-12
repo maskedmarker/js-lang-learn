@@ -16,6 +16,7 @@ const lessons = [
   '08-typeof.js',
   'import/09-import.js',
   'array/09-arrays.js',
+  'scope-chain/09-scope-chain.js',
 ];
 
 console.log('=== JavaScript 学习 - 全部示例 ===\n');

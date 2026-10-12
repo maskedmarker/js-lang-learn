@@ -28,6 +28,8 @@ hello-node/
         └── modules/                # 被 09-import.js 导入的示例模块
     └── array/                      # 数组方法专题(子目录,系统性按方法分节)
         └── 09-arrays.js            # flat() / flatMap() 完整讲解(13 节)
+    └── scope-chain/                # 作用域与作用域链专题
+        └── 09-scope-chain.js       # 15 节:作用域/全局/函数/块级/链原理/闭包/陷阱
 ```
 
 ## 使用方法
@@ -46,6 +48,7 @@ npm run void2        # void 运算符 (扩展:有名函数 + 递归)
 npm run typeof       # typeof 运算符
 npm run import       # import 专题 (含被导入的演示模块)
 npm run arrays       # 数组方法专题 (当前: flat() / flatMap())
+npm run scope        # 作用域与作用域链专题 (15 节)
 
 # 依次运行所有示例
 npm run all
@@ -64,6 +67,7 @@ npm run all
 9. `08-typeof.js` — `typeof` 的 8 种返回值、未声明容错、与字符串 `'undefined'` 比较
 10. `import/09-import.js` — `import` 专题:default / named / 命名空间 / 重命名 / 副作用 / 路径 / 循环依赖 / 动态 import / 提升 / ESM vs CJS / 常见坑
 11. `array/09-arrays.js` — 数组方法专题:`flat()` / `flatMap()` 完整讲解(默认 depth、深度控制、Infinity、稀疏数组压紧、非数组保留、实战 API 嵌套、坑汇总)
+12. `scope-chain/09-scope-chain.js` — 作用域与作用域链专题:全局/函数/块级 3 种作用域、Execution Context + LexicalEnvironment 原理、闭包、循环 var 陷阱、词法 vs 动态、TDZ、eval/with 副作用、查找性能、坑汇总
 
 ## 关键提示
 

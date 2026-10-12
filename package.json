@@ -17,6 +17,7 @@
     "typeof": "node src/08-typeof.js",
     "import": "node src/import/09-import.js",
     "arrays": "node src/array/09-arrays.js",
+    "scope": "node src/scope-chain/09-scope-chain.js",
     "all": "node run-all.js"
   },
   "keywords": [
