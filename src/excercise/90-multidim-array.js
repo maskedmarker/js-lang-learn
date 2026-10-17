@@ -1,5 +1,5 @@
 // 多层嵌套的数组,删除各个层级中符合条件的元素
-const title = '90 - 多层嵌套的数组';
+const title = '90 - 多维数组';
 console.log('=== ' + title + ' ===');
 console.log('');
 
