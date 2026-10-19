@@ -15,6 +15,7 @@ const lessons = [
   'basic/07-void-operator-2.js',
   'basic/08-typeof.js',
   'basic/09-for-in-of.js',
+  'basic/10-generator-function.js',
   'import/09-import.js',
   'array/09-arrays.js',
   'scope-chain/09-scope-chain.js',

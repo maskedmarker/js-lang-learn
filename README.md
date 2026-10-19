@@ -24,7 +24,8 @@ hello-node/
     │   ├── 07-void-operator-1.js     # void 运算符(基础):返回 undefined / 阻止跳转
     │   ├── 07-void-operator-2.js     # void 运算符(扩展):有名函数 + IIFE + 递归
     │   ├── 08-typeof.js              # typeof:8 种返回值、与 undefined 比较的坑
-    │   └── 09-for-in-of.js           # for...in / for...of 完全讲解(16 节)
+    │   ├── 09-for-in-of.js           # for...in / for...of 完全讲解(16 节)
+    │   └── 10-generator-function.js  # 生成器函数(Generator)完全讲解(18 节)
     ├── import/                   # import 专题(子目录,带演示模块)
     │   ├── 09-import.js          # ES Module import 各种写法与坑
     │   └── modules/              # 被 09-import.js 导入的示例模块
@@ -49,6 +50,7 @@ npm run void         # void 运算符 (基础)
 npm run void2        # void 运算符 (扩展:有名函数 + 递归)
 npm run typeof       # typeof 运算符
 npm run forinof      # for...in / for...of 完全讲解 (16 节)
+npm run generator    # 生成器函数(Generator)完全讲解 (18 节)
 npm run import       # import 专题 (含被导入的演示模块)
 npm run arrays       # 数组方法专题 (当前: flat() / flatMap())
 npm run scope        # 作用域与作用域链专题 (15 节)
@@ -69,9 +71,10 @@ npm run all
 8. `basic/07-void-operator-2.js` — `void` 运算符扩展:有名函数 IIFE、递归闭包
 9. `basic/08-typeof.js` — `typeof` 的 8 种返回值、未声明容错、与字符串 `'undefined'` 比较
 10. `basic/09-for-in-of.js` — `for...in` / `for...of` 完全讲解:遍历顺序、继承属性、Symbol.iterator、数组/Set/Map/Generator/for await、break/continue、15 个坑汇总
-11. `import/09-import.js` — `import` 专题:default / named / 命名空间 / 重命名 / 副作用 / 路径 / 循环依赖 / 动态 import / 提升 / ESM vs CJS / 常见坑
-11. `array/09-arrays.js` — 数组方法专题:`flat()` / `flatMap()` 完整讲解(默认 depth、深度控制、Infinity、稀疏数组压紧、非数组保留、实战 API 嵌套、坑汇总)
-12. `scope-chain/09-scope-chain.js` — 作用域与作用域链专题:全局/函数/块级 3 种作用域、Execution Context + LexicalEnvironment 原理、闭包、循环 var 陷阱、词法 vs 动态、TDZ、eval/with 副作用、查找性能、坑汇总
+11. `basic/10-generator-function.js` — 生成器函数完全讲解:`function*` 声明、`yield`/`yield*`/`return`、`next`/`return`/`throw` 协议、`for...of` 消费、无限序列 + break、自定义 iterable、实战(手写 flat、ID 生成器、异步分页、Saga)、7 个坑汇总
+12. `import/09-import.js` — `import` 专题:default / named / 命名空间 / 重命名 / 副作用 / 路径 / 循环依赖 / 动态 import / 提升 / ESM vs CJS / 常见坑
+13. `array/09-arrays.js` — 数组方法专题:`flat()` / `flatMap()` 完整讲解(默认 depth、深度控制、Infinity、稀疏数组压紧、非数组保留、实战 API 嵌套、坑汇总)
+14. `scope-chain/09-scope-chain.js` — 作用域与作用域链专题:全局/函数/块级 3 种作用域、Execution Context + LexicalEnvironment 原理、闭包、循环 var 陷阱、词法 vs 动态、TDZ、eval/with 副作用、查找性能、坑汇总
 
 ## 关键提示
 
