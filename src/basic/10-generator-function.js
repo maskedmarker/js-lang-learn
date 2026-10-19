@@ -128,6 +128,7 @@ console.log('  eg.next("A"):', eg.next('A'));        // 第一个 next 的参数
 console.log('  eg.next("B"):', eg.next('B'));        // a = "B"
 console.log('  eg.next("C"):', eg.next('C'));        // b = "C"
 console.log('  eg.next("D"):', eg.next('D'));        // c = "D",return [B,C,D]
+console.log('  eg.next("D"):', eg.next('D'));        // { value: undefined, done: true } c未定义,也无意义
 console.log(`
   双向通信:
     - yield 产出值(IteratorResult.value)
@@ -153,8 +154,8 @@ function* genC() {
   yield* [10, 20, 30]; // 也能委托给普通 iterable(数组/字符串/Set/Map)
   yield 40;
 }
-console.log('  [...genB()]:', [...genB()]);
-console.log('  [...genC()]:', [...genC()]);
+console.log('  [...genB()]:', [...genB()]);  // [ 1, 2, 3, 4 ]
+console.log('  [...genC()]:', [...genC()]);  // [ 10, 20, 30, 40 ]
 console.log(`
   yield* 后面可以是任意 iterable:generator / 数组 / 字符串 / Set / Map。
   返回值是右侧 iterable 最后一个 value(若 done 也是最后一个 done 的 value)。
