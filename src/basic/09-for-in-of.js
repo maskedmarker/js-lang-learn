@@ -89,7 +89,12 @@ console.log('--- 4. for...in vs Object.keys() ---');
 console.log('  Object.keys(person):', Object.keys(person));  // 自有字符串键
 console.log('  for (const k in person):');
 for (const k in person) { console.log(`    ${k}`); }
-console.log('  注意:Object.keys() 不遍历整数索引转换后的顺序,for...in 对数组的行为不同!');
+console.log(`  对纯对象(全是字符串键、没有整数索引):`);
+console.log('    - Object.keys() 和 for...in 的输出顺序完全一致,都是插入顺序');
+console.log('    - 差异点:for...in 会遍历原型链上的属性,Object.keys() 不会');
+console.log('  对数组(整数索引是 0,1,2,...)才体现顺序规则:');
+console.log('    整数索引按数值升序,然后才是字符串键按插入顺序(第 5 节演示)');
+console.log('');
 
 // =============================================================================
 // 5. for...in 遍历数组(不推荐,但要知道)
