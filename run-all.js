@@ -16,6 +16,7 @@ const lessons = [
   'basic/08-typeof.js',
   'basic/09-for-in-of.js',
   'basic/10-generator-function.js',
+  'basic/11-proxy.js',
   'import/09-import.js',
   'array/09-arrays.js',
   'scope-chain/09-scope-chain.js',
