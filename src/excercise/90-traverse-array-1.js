@@ -43,13 +43,13 @@ console.log('==============自底向上剪枝=====================');
  * 3. 原本有子节点的节点，过滤后变空了也清除（剪掉空分支）。
  * @returns 处理后的节点，或 null（被清除）
  */
-function handleNode(node, filterFn) {
+function pruneNode(node, filterFn) {
     // 1. 先自底向上过滤子节点
     const childNodes = [];
     const hasChildren = node.children && node.children.length > 0; // 记录"原本"是否有子节点
     if (hasChildren) {
         for (const child of node.children) {
-            const tmp = handleNode(child, filterFn);
+            const tmp = pruneNode(child, filterFn);
             if (tmp !== null) {
                 childNodes.push(tmp);
             }
@@ -73,7 +73,7 @@ function handleNode(node, filterFn) {
 function handleForest(arr, filterFn) {
     const result = [];
     for (const root of arr) {
-        const tmp = handleNode(root, filterFn);
+        const tmp = pruneNode(root, filterFn);
         if (tmp !== null) {
             result.push(tmp);
         }
