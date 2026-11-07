@@ -18,6 +18,7 @@
     "forinof": "node src/basic/09-for-in-of.js",
     "generator": "node src/basic/10-generator-function.js",
     "proxy": "node src/basic/11-proxy.js",
+    "proxy2": "node src/basic/11-proxy-2.js",
     "import": "node src/import/09-import.js",
     "arrays": "node src/array/09-arrays.js",
     "scope": "node src/scope-chain/09-scope-chain.js",
