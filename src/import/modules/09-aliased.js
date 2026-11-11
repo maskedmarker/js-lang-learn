@@ -11,3 +11,9 @@ export {
   originalName as renamed,
   originalFn as exportedFn,
 };
+
+/**
+等价于:
+export { originalName as renamed };
+export { originalFn as exportedFn };
+ */
