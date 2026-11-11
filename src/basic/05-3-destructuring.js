@@ -1,7 +1,7 @@
-// 14-destructuring - 解构(Destructuring)完全讲解
+// 05-destructuring - 解构(Destructuring)完全讲解
 // 核心概念:对象解构 / 数组解构 / 解构赋值 / 解构模式(pattern)
 
-const title = '14-destructuring - 解构(Destructuring)完全讲解';
+const title = '05-destructuring - 解构(Destructuring)完全讲解';
 console.log('=== ' + title + ' ===\n');
 
 // =============================================================================
