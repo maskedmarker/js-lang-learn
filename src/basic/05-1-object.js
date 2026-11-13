@@ -96,3 +96,49 @@ const obj3 = { ["1"]: "A" };
 // 如果确实需要使用 number 类型的 key, JavaScript 提供了 Map
 
 // 只能使用obj[1]或者obj["1"]来访问属性值, 而不能使用obj.1, 因为点操作符要求属性名是一个有效的标识符，而数字不是有效的标识符
+
+
+// ========== 6. 定义对象的 getter 方法 ==========
+/**
+  * getter 方法是对象的一个属性, 访问该属性时会调用 getter 方法, 返回值就是该属性的值
+  * setter 方法是对象的一个属性, 设置该属性时会调用 setter 方法, 可以在 setter 方法中对值进行验证或处理
+ */
+console.log('--- 6. 定义对象的 getter/setter 方法 ---');
+const user = {
+    firstName: '张',
+    lastName: '三',
+    _age: null,
+
+    get fullName() {
+        return this.firstName + this.lastName;
+    },
+
+    get age() {
+        return this._age;
+    },
+
+    set age(value) {
+        if (value < 0) {
+            throw new Error('年龄不能小于0');
+        }
+
+        // 千万不能申明一个age属性,否则会无限递归调用setter方法,导致栈溢出
+        this._age = value;
+    }
+};
+
+console.log(user.fullName); // 张三
+try {
+  user.fullName(); // 错误：fullName 不是普通函数
+} catch (error) {
+    console.error(error.message);
+}
+
+console.log(user.age); // null
+user.age = 30;
+console.log(user.age);
+try {
+  user.age = -1; // 抛出错误：年龄不能小于0
+} catch (error) {
+    console.error(error.message);
+}

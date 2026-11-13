@@ -52,6 +52,33 @@
   console.log(proxy2.info);   // getter this === target: false   getter 中的 this是 receiver
 })();
 
+/**
+当执行 console.log(proxy2.info);时, 发生了什么?
+
+执行 console.log(proxy2.info); 时,proxy2 是第 46-50 行用 new Proxy 创建的代理,完整执行链路如下(按时间顺序):
+① 求值 proxy2.info —— 11-2-proxy.js:52
+    对 Proxy 对象做属性访问 → 触发 proxy2 的 get 拦截器。
+
+② 拦截器被调用 —— 11-2-proxy.js:47-49
+    形参实参对应: target = 第 24-31 行的原始对象,property = 'info',receiver = proxy2 本身(访问发生在 proxy 上,receiver 就是 proxy)。
+
+③ Reflect.get(target, 'info', proxy2) 执行
+    在 target 上读取 info,但把 getter 内部的 this 指定为 receiver,即 proxy2。    
+
+④ getter 执行 —— 11-2-proxy.js:27-30    
+    先执行第 28 行: 此时 this 是 proxy2,不等于 target → 打印 getter this === target: false。
+⑤ return this.value; —— 11-2-proxy.js:29
+    this 是 proxy2,所以 this.value 等价于 proxy2.value —— 这又是一次对 Proxy 的访问,get 拦截器被第二次触发,回到 ②(这次 property = 'value')。
+
+⑥ 拦截器第二次执行
+    Reflect.get(target, 'value', proxy2) → value 是普通数据属性(11-2-proxy.js:25 value: 100),没有 getter,receiver 不影响它,直接返回 100。
+
+⑦ 逐层返回
+    getter 返回 100 → 拦截器返回 100 → console.log 打印 100。    
+
+一个容易忽略的点: 
+拦截器其实被触发了两次(info 一次,value 一次),只是因为这段的拦截器里没有打印日志,第二次触发是"静默"的。
+*/
 
 
 // 更重要的区别：是否能够继续触发 Proxy 拦截
